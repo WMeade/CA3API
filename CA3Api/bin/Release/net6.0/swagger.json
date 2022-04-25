@@ -1,0 +1,272 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "CA3Api",
+    "version": "v1"
+  },
+  "paths": {
+    "/Player/byId/{playerId}": {
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "playerId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Player"
+            }
+          }
+        }
+      }
+    },
+    "/Player/byUsername/{username}": {
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "$ref": "#/definitions/Player"
+            }
+          }
+        }
+      }
+    },
+    "/Player/Players/TopTen": {
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Player"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Player/Players/TopHundred": {
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Player"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Player/Leaderboard/getLeaderboard": {
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Leaderboard"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Player/getKdById/{playerId}": {
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "playerId",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        }
+      }
+    },
+    "/Player/getKdByUsername/{username}": {
+      "get": {
+        "tags": [
+          "Player"
+        ],
+        "produces": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "format": "int32",
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Leaderboard": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "size": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "player_pos": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "kd_ratio": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "wins": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "player_id": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Player": {
+      "type": "object",
+      "properties": {
+        "user_id": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "user_name": {
+          "type": "string"
+        },
+        "kills": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "deaths": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "assists": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "leaderboard_pos": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "max_kills": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "wins": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "losses": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "highest_killstreak": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "premium": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}
